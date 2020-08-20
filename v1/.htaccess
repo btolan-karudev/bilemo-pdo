@@ -1,0 +1,20 @@
+#CORS options
+Header Set Access-Control-Allow-Origin "*"
+
+php_flag display_errors on
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^customers/([0-9]+)$ controller/customer.php?customerId=$1 [L]
+RewriteRule ^customers/complete$ controller/customer.php?completed=YES [L]
+RewriteRule ^customers/incomplete$ controller/customer.php?completed=NO [L]
+RewriteRule ^customers/page/([0-9]+)$ controller/customer.php?page=$1 [L]
+RewriteRule ^customers$ controller/customer.php [L]
+
+RewriteRule ^users$ controller/user.php [L]
+
+RewriteRule ^sessions/([0-9]+)$ controller/session.php?sessionid=$1 [L]
+RewriteRule ^sessions$ controller/session.php [L]
