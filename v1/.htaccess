@@ -9,8 +9,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^customers/([0-9]+)$ controller/customer.php?customerId=$1 [L]
-RewriteRule ^customers/complete$ controller/customer.php?completed=YES [L]
-RewriteRule ^customers/incomplete$ controller/customer.php?completed=NO [L]
+RewriteRule ^customers/activ$ controller/customer.php?status=YES [L]
+RewriteRule ^customers/inactiv$ controller/customer.php?status=NO [L]
 RewriteRule ^customers/page/([0-9]+)$ controller/customer.php?page=$1 [L]
 RewriteRule ^customers$ controller/customer.php [L]
 
